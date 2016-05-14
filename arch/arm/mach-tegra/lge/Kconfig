@@ -1,0 +1,57 @@
+config MACH_LGE
+        bool
+
+menu "LGE Device-Specific Changes"
+
+menu "LGE Board Selection"
+
+choice
+        prompt "LGE Board selection"
+        default MACH_PDA
+
+config MACH_PDA
+       bool "PDA board"
+       depends on ARCH_TEGRA_14x_SOC
+       select MACH_LGE
+       select MACH_HAS_SND_SOC_TEGRA_MAX98090 if SND_SOC
+       select MACH_HAS_SND_SOC_TEGRA_TLV320AIC325X if SND_SOC
+       select MACH_HAS_SND_SOC_TEGRA_DMIC_REV1 if SND_SOC
+
+       help
+         Support for LGE PDA Development platform
+
+endchoice
+
+config LGE_MODEM_CRASH_HANDLER
+       bool "LGE modem crash handler support"
+       default n
+       help
+         Support LGE Modem crash handler
+
+endmenu
+
+config LGE_HIDDEN_RESET
+       bool "LGE hidden Reset support"
+       default n
+       help
+         Support LGE Hidden Reset
+
+config LGE_BOOTLOADER_LOG_BUFFER
+       bool "LGE Bootloader log buffer"
+       default n
+       help
+         Say Y here to enable see bootloader debugging messages in Kernel message.
+
+config LGE_HANDLE_PANIC_CP15
+       bool "LGE handle panic using CP15 register"
+       default n
+       help
+         Support LGE handle panic using CP15 register
+
+config LGE_BLUETOOTH
+       bool "LGE bluetooth driver"
+       default n
+       help
+         Support LGE Bluetooth Power & Sleep
+
+endmenu

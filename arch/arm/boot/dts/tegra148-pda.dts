@@ -1,0 +1,8 @@
+/dts-v1/;
+
+/include/ "tegra148.dtsi"
+
+/ {
+	model = "NVIDIA Tegra148 pda board";
+	compatible = "nvidia,pda", "nvidia,tegra148";
+};

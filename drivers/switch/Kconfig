@@ -1,0 +1,35 @@
+menuconfig SWITCH
+	tristate "Switch class support"
+	help
+	  Say Y here to enable switch class support. This allows
+	  monitoring switches by userspace via sysfs and uevent.
+
+if SWITCH
+
+config SWITCH_GPIO
+	tristate "GPIO Swith support"
+	depends on GENERIC_GPIO
+	help
+	  Say Y here to enable GPIO based switch support.
+
+config SWITCH_MAX1462X
+	tristate "LGE Headset detection driver(MAX14628)"
+	default n
+	help
+	  Say Y here to enable GPIO based switch support.
+
+config SWITCH_MAX14688
+	tristate "MAXIM MAX14688 headset jack detector support"
+	depends on I2C
+	default n
+	help
+	  This option enables device driver support for MAX14688, a headset jack detection IC.
+	  To compile this driver as module, choose M here: the
+
+config SWITCH_3BUTTON_EARJACK
+	bool "LGE Headset support 3-button earjack"
+	default n
+	help
+	  Say Y hear to support 3-button earjack
+
+endif # SWITCH
